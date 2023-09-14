@@ -10,7 +10,7 @@ export const verifyToken = async (req, res, next) => {
         const decodedToken = jwt.decode(accessToken);
 
         if (decodedToken && typeof decodedToken === 'object' && decodedToken.exp && decodedToken.exp < Date.now() / 1000) {
-            return res.status(401).json({ error: "Unauthorized: Token has expired" });
+            return res.status(401).json({message: "Unauthorized: Token has expired" });
         }
 
         jwt.verify(accessToken, JWT_SECRET, async (err, user) => {
