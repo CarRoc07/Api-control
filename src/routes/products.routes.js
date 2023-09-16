@@ -5,7 +5,8 @@ import {
     getProduct,
     createProduct,
     deleteProduct,
-    updateProduct} 
+    updateProduct,
+    updatePrices} 
 from "../controllers/product.controller.js";
 import { validateSchema } from "../middlewares/validatorSchema.js";
 import { productSchema } from "../schemas/product.schema.js"; 
@@ -22,5 +23,7 @@ productsRouter.post("/product", verifyToken, validateSchema(productSchema) , cre
 productsRouter.delete("/product/:id", verifyToken, deleteProduct)
 
 productsRouter.put("/product/:id", verifyToken, updateProduct)
+
+productsRouter.put("/product/update", verifyToken, updatePrices)
 
 export default productsRouter;

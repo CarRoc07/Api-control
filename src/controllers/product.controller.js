@@ -61,3 +61,12 @@ export const updateProduct = async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 }
+
+export const updatePrices = async (req, res) => {
+    try {
+        await Product.updateMany({}, { $mul: { costo: 1.05 } });
+        console.log('Precios actualizados exitosamente');
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+}
