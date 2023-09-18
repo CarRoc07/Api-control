@@ -68,14 +68,14 @@ export const updatePrices = async (req, res) => {
     if (action === 'add') {
         try {
             await Product.updateMany({}, { $mul: { costo: Number(value) } });
-            console.log('Precios actualizados exitosamente');
+            res.status(200).json({ message: 'Precios actualizados existosamente' })
         } catch (error) {
             res.status(500).json({ message: error.message })
         }
     } else if (action === 'sub') {
         try {
             await Product.updateMany({}, { $mul: { costo: Number(value) } });
-            console.log('Precios actualizados exitosamente');
+            res.status(200).json({ message: 'Precios actualizados existosamente' })
         } catch (error) {
             res.status(500).json({ message: error.message })
         }
