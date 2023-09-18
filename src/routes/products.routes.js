@@ -24,6 +24,6 @@ productsRouter.delete("/product/:id", verifyToken, deleteProduct)
 
 productsRouter.put("/product/:id", verifyToken, updateProduct)
 
-productsRouter.put("/product/update", verifyToken, updatePrices)
+productsRouter.put("/product/update/:action", verifyToken, updatePrices)
 
 export default productsRouter;
