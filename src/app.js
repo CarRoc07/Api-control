@@ -7,9 +7,10 @@ import cors from 'cors'
 const app = express();
 
 app.use(cors({
-    origin: 'https://app-dashboard-control-stock.vercel.app',
+    origin: '*',
     methods: 'GET,PUT,POST,DELETE',
     credentials: true,
+    optionsSuccessStatus: 200
 }));
 
 app.use(express.json());
